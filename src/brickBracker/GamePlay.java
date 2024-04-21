@@ -16,7 +16,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 	private boolean play = false;
 	private int score = 0;
 	
-	private int totalBricks = 24;
+	private int totalBricks = 30;
 	
 	private Timer timer;
 	private int delay = 8;
@@ -31,7 +31,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 	private MapGenerator map;
 	
 	public GamePlay() {
-		map = new MapGenerator(3,8);
+		map = new MapGenerator(3,10);
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
@@ -72,20 +72,20 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 			ballYdir =0;
 			g.setColor(Color.red);
 			g.setFont(new Font("serif", Font.BOLD, 30));
-			g.drawString("You Won!!, score: "+score, 190, 300);
+			g.drawString("You Won!!, Your score: "+score, 190, 300);
 			
 			g.setFont(new Font("serif", Font.BOLD, 25));
 			g.drawString("Press Enter to Restart", 230, 350);
 			
 		}
 		
-		if(ballposY > 570) {
+		if(ballposY > 565) {
 			play = false;
 			ballXdir =0;
 			ballYdir =0;
 			g.setColor(Color.red);
 			g.setFont(new Font("serif", Font.BOLD, 30));
-			g.drawString("Game Over, score: "+score, 190, 300);
+			g.drawString("Game Over, Your score: "+score, 190, 300);
 			
 			g.setFont(new Font("serif", Font.BOLD, 25));
 			g.drawString("Press Enter to Restart", 230, 350);
@@ -176,14 +176,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if(!play) {
 				play = true;
-				ballposX = 120;
-				ballposY = 350;
+				ballposX = 300;
+				ballposY = 250;
 				ballXdir = -1;
 				ballYdir = -2;
 				playerX = 310;
 				score = 0 ;
-				totalBricks =24;
-				map = new MapGenerator(3,8);
+				totalBricks =30;
+				map = new MapGenerator(3,10);
 				
 				repaint();
 			}
